@@ -7,7 +7,7 @@ kafka-topics --create --topic topic1 --bootstrap-server 192.168.0.29:9092
 
 ./kafka-topics.bat --create --topic orders --bootstrap-server 192.168.0.40:9092
 
-kafka-topics --list --bootstrap-server 192.168.0.29:9092
+kafka-topics --list --bootstrap-server 192.168.0.69:9092
 
 /d/kafka_2.13-3.8.0/bin/windows
 ./kafka-topics.bat --list --bootstrap-server 192.168.0.40:9092

@@ -6,7 +6,7 @@ docker rmi leetorrl/order-service:msa.k8.03
 docker rmi leetorrl/order-service:msa.k8.04
 
 #이미지 생성
-docker build -t leetorrl/order-service:msa.k8.01 .
+docker build -t leetorrl/order-service:msa.k8.03 .
 
 #이미지 dockerhub 업로드 명령어
-docker push leetorrl/order-service:msa.k8.01
+docker push leetorrl/order-service:msa.k8.03

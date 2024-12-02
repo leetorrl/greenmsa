@@ -1,7 +1,9 @@
 package com.green.catalogservice.catalog.jpa;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
@@ -9,6 +11,8 @@ import java.util.Date;
 @Entity
 @Data
 @Table(name = "catalogs")
+@NoArgsConstructor
+@AllArgsConstructor
 public class CatalogEntity {
 
     @Id

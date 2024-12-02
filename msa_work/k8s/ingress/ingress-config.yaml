@@ -34,6 +34,14 @@ spec:
                 name: order-service
                 port:
                   number: 40004
+
+          - path: /calalog-service
+            pathType: Prefix
+            backend:
+               service:
+                 name: calalog-service
+                 port:
+                  number: 40005
           - path: /
             pathType: ImplementationSpecific
             backend:
