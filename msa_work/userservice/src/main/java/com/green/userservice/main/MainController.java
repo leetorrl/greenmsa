@@ -11,11 +11,9 @@ public class MainController {
 
     private final Environment environment;
 
-
     @GetMapping("/env")
-    public String getEnvironmentVariables(){
-        return String.format("token.secret = %s", environment.getProperty("token.secret"));
+    public String getEnvironmentVariables() {
+        return String.format(" token.secret = %s", environment.getProperty("token.secret"));
     }
-
 
 }

@@ -1,19 +1,6 @@
-docker run \
-    --name prometheus \
-    -d \
-    -p 9090:9090 \
-    -v ./prometheus.yml:/etc/prometheus/prometheus.yml \
-    prom/prometheus
+kubectl scale deployment first-service-deployment --replicas=3
+kubectl scale deployment secondservice --replicas=3
 
-# docker cp ./prometheus.yml prometheus:/etc/prometheus/prometheus.yml
+# 접속 테스트 명령어
+for i in {1..100}; do curl localhost:40001/first-service/test; done
 
-# docker cp ./promethuesk8s.yml prometheus:/etc/prometheus/prometheus.yml
-
-
-docker run \
-    --name prometheus \
-    -d \
-    -p 9090:9090 \
-    prom/prometheus
-
-docker run -d -p 3000:3000 --name=grafana grafana/grafana-enterprise

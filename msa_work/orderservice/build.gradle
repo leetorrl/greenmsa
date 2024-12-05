@@ -39,7 +39,7 @@ dependencies {
 	implementation 'io.micrometer:micrometer-observation'
 	implementation 'io.github.openfeign:feign-micrometer'
 	// zipkin 끝
-	
+
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 

@@ -10,7 +10,6 @@ data:
   user-service-url: "http://user-service:40003"
   order-service-url: "http://order-service:40004"
   catalog-service-url: "http://catalog-service:40005"
-#  bootstrap-servers: "172.30.1.58:9092"
 
   first-service-port: "40001"
   second-service-port: "40002"
@@ -24,3 +23,5 @@ data:
   spring-datasource-username: "root"
 
   management-zipkin-tracing-endpoint: "http://zipkin-service:9411/api/v2/spans"
+
+  spring-kafka-bootstrap-servers: "192.168.65.3:9094"

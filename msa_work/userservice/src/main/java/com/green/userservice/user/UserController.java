@@ -13,27 +13,23 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("user-service")
+@RequestMapping("api/user-service")
 @RequiredArgsConstructor
-@CrossOrigin
 public class UserController {
 
     private final UserService userService;
     private final FirstClient firstClient;
 
-    @Timed("long.work")
     @GetMapping("long-work")
+    @Timed("long.work")
     public String longWork(){
-
-        try{
-            Thread.sleep(1000);
-        }catch (InterruptedException e){
+        try {
+            Thread.sleep(1000); // 5 seconds
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         return "Long work completed";
     }
-
-
     @GetMapping("short-work")
     @Timed("short.work")
     public String shortwork(){
@@ -45,25 +41,19 @@ public class UserController {
         return "short work completed";
     }
 
-
     @GetMapping("test")
     public String test(){
-
         System.out.println("통신시작");
         System.out.println(firstClient.getTest());
         System.out.println("통신끝");
-
         return "UserService";
     }
 
-
+    @Timed("my.join")
     @PostMapping("join")
     public ResponseEntity<UserResponse> joinUser(@RequestBody UserRequest userRequest) {
-
-        userService.join(userRequest);
-
         UserResponse userResponse = userService.join(userRequest);
-
+        System.out.println(userResponse);
         return ResponseEntity.ok(userResponse);
     }
 
@@ -72,6 +62,7 @@ public class UserController {
         return ResponseEntity.ok(userService.list());
     }
 
+    @Timed(value = "user.service.login",longTask = true)
     @GetMapping("login")
     public ResponseEntity<LoginResponse> getUser(
             @RequestParam(value = "email") String email,
@@ -80,15 +71,14 @@ public class UserController {
         return ResponseEntity.ok(loginResponse);
     }
 
-
     @GetMapping("getuser/{userId}")
     public ResponseEntity<UserResponse> getUser(@PathVariable(value = "userId") String userId){
         UserResponse userResponse = userService.getUser(userId);
         return ResponseEntity.ok(userResponse);
     }
 
-    @GetMapping("Kakaologin")
-    public ResponseEntity<String> KakaoLogin() {
+    @GetMapping("kakaologin")
+    public ResponseEntity<String> kakaoLogin() {
         return ResponseEntity.ok(null);
     }
 

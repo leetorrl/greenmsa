@@ -1,9 +1,7 @@
 package com.green.catalogservice.catalog.service;
 
-
-import com.green.catalogservice.catalog.jpa.CatalogRepository;
-import com.green.catalogservice.catalog.vo.CatalogRequest;
 import com.green.catalogservice.catalog.vo.CatalogResponse;
+import com.green.catalogservice.catalog.vo.CatalogRequest;
 
 import java.util.List;
 

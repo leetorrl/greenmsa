@@ -6,21 +6,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("second-service")
 public class SecondController {
-
-
     private final Environment environment;
 
     @GetMapping("test")
     public String test(){
-
-
-
-        System.out.println("여기 서버가 동작..."+environment.getProperty("local.server.port"));
+        System.out.println(" 여기 서버가 동작...."+environment.getProperty("local.server.port"));
         return "SecondService";
     }
+
 }

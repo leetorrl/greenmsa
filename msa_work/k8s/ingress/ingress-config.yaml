@@ -1,10 +1,11 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: msa-ingress
+  name: pmh-ingress
 spec:
   rules:
-    - http:
+    - host: localhost
+      http:
         paths:
           - path: /first-service
             pathType: Prefix
@@ -34,19 +35,11 @@ spec:
                 name: order-service
                 port:
                   number: 40004
-
-          - path: /calalog-service
+          - path: /catalog-service
             pathType: Prefix
             backend:
-               service:
-                 name: calalog-service
-                 port:
-                  number: 40005
-          - path: /
-            pathType: ImplementationSpecific
-            backend:
               service:
-                name: node-service
+                name: catalog-service
                 port:
-                  number: 3000
+                  number: 40005
   ingressClassName: nginx

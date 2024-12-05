@@ -1,6 +1,7 @@
 package com.green.userservice.user.vo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -27,5 +28,4 @@ public class UserRequest {
     @Size(min = 8, message = "password must be greater than 8")
     @Schema(example = "abcd1234")
     private String password;
-
 }

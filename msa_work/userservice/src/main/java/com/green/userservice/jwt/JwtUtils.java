@@ -33,8 +33,8 @@ public class JwtUtils {
                 Integer.parseInt(this.environment.getProperty("token.refresh_token_expiration_time"));
         this.secretKey =
                 new SecretKeySpec(
-                        Base64.getEncoder().encode( SECRET_KEY.getBytes() ),
-                        SignatureAlgorithm.HS256.getJcaName()
+                    Base64.getEncoder().encode( SECRET_KEY.getBytes() ),
+                    SignatureAlgorithm.HS256.getJcaName()
                 );
     }
 

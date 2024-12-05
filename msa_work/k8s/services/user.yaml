@@ -1,4 +1,3 @@
-
 apiVersion: apps/v1
 kind: Deployment # pod 여러개
 metadata:
@@ -15,8 +14,8 @@ spec: # 어떻게 만들지 대한 내용
     spec: # pod 하나하나에 대한 내용
       containers:
         - name: user-service
-          image: leetorrl/user-service:msa.k8.03 # dockerhub 에 있는 image
-          #          imagePullPolicy: Always # 매번 이미지를 가져오도록 설정
+          image: leetorrl/user-service:msa.k8.06 # dockerhub 에 있는 image
+#          imagePullPolicy: Always # 매번 이미지를 가져오도록 설정
           ports:
             - containerPort: 40003 #default one
           env:
@@ -44,7 +43,6 @@ spec: # 어떻게 만들지 대한 내용
               value: first-service:40001
             - name: ORDER_SERVICE_URL
               value: order-service:40004
-
 
 ---
 apiVersion: v1

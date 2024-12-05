@@ -11,5 +11,4 @@ public class ErrorControllerAdvice {
     public ResponseEntity<String> userException(UserException userException) {
         return ResponseEntity.badRequest().body(userException.getMessage());
     }
-
 }

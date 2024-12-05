@@ -7,7 +7,7 @@ spring:
 
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://192.168.0.69:30308/msa?serverTimezone=Asia/Seoul
+    url: jdbc:mariadb://192.168.0.40:30308/msa?serverTimezone=Asia/Seoul
     username: root
     password: 1234
   output:
@@ -16,8 +16,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create
-#      ddl-auto: none
+      ddl-auto: none
     properties:
       hibernate.format_sql: false
     show-sql: true
@@ -54,5 +53,4 @@ management:
         include: "*"
 
 first-service-url: http://localhost:40001
-#order-service-rul: http://localhost:40004
 catalog-service-url: http://localhost:20002
