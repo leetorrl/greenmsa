@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Testcom, Testcom2, Rut } from './App';
 import './index.css'
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
@@ -16,6 +15,7 @@ root.render(
        <Testcom2 />
        --------------
        <Rut/>
+      
     </div>
  </>
 );
