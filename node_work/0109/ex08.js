@@ -6,7 +6,6 @@ const getData = async () => {
             //     age:20,
             //     gender:"남자",
             // });
-
             reject({
                 error:"에러",
                 code: 500
@@ -16,8 +15,6 @@ const getData = async () => {
 };
 
 const printData = async() => {
-
-
     // try{
     //     const res = await getData();
     //     console.log(res)
@@ -25,7 +22,6 @@ const printData = async() => {
     //     console.log(e)
     //     alert("통신실패")
     // }
-
     getData()
     .then((result) => {
         console.log(result)})
