@@ -1,6 +1,7 @@
 - 주니어 웹개발자
 
-![image](https://github.com/user-attachments/assets/0508dad1-2e21-4362-9064-2d6a6d895277)
+![image](https://github.com/user-attachments/assets/37cfbb3d-69be-495f-b446-c0dcbd6e37dc)
+
 
 
 
