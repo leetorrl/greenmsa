@@ -1,5 +1,4 @@
 
-
 const express = require('express')
 
 const db = require('./db');
@@ -30,7 +29,6 @@ app.post("/login", (req, res) => {
     res.json({ status: 200 });
 
 })
-
 
 app.listen(3000,()=>{
 console.log("서버시작했음")
