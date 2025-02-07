@@ -13,6 +13,8 @@
   "description": "",
   "dependencies": {
     "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "moment-timezone": "^0.5.47",
     "mongoose": "^8.10.0",
     "swagger-autogen": "^2.23.7",
     "swagger-jsdoc": "^6.2.8",

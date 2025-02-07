@@ -16,5 +16,5 @@ app.get('/api', (req, res) => {
 
 // 서버 실행
 app.listen(port, '0.0.0.0', () => {
-  console.log(`Server is running at http://localhost:${port}`);
+  console.log(`Server is running at http://192.168.0.103:${port}`);
 });

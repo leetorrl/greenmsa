@@ -12,17 +12,17 @@ import {
 import Toast from 'react-native-toast-message';
 
 const HomeScreen = ({ navigation }) => {
-    const [email, setEmail] = useState('');
+    const [name, setname] = useState('');
     const [password, setPassword] = useState('');
 
     const handleLogin = async () => {
         try {
             const res = await axios.post(
-                'http://112.222.157.156:50545/login',
-                { email, password }
+                'http://112.222.157.156:3500/login',
+                { name, password }
             );
             console.log(res.data); // API 응답 확인
-
+            Alert.alert(JSON.stringify(res.data));
             Toast.show({
                 type: 'info',
                 text1: '로그인성공',
@@ -59,9 +59,9 @@ const HomeScreen = ({ navigation }) => {
             </Text>
             <View style={styles.inputContainer}>
                 <TextInput
-                    placeholder="이메일"
-                    value={email}
-                    onChangeText={setEmail}
+                    placeholder="이름"
+                    value={name}
+                    onChangeText={setname}
                     style={styles.input}
                 />
                 <TextInput
