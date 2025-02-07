@@ -1,0 +1,3 @@
+
+docker run -p -d 3306:3306 --name leetorrldb -e MARIADB_ROOT_PASSWORD=1234 mariadb
+docker urn -p -d 3306:3306 --name leetorrldb -e MYSQL_ROOT_PASSWORD=1234 mysql
