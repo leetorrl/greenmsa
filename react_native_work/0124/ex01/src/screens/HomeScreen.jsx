@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     View,
     Text,
@@ -10,10 +10,14 @@ import {
     Alert,
 } from 'react-native';
 import Toast from 'react-native-toast-message';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+
 
 const HomeScreen = ({ navigation }) => {
     const [name, setname] = useState('');
     const [password, setPassword] = useState('');
+
 
     const handleLogin = async () => {
         try {
@@ -21,8 +25,10 @@ const HomeScreen = ({ navigation }) => {
                 'http://112.222.157.156:3500/login',
                 { name, password }
             );
-            console.log(res.data); // API 응답 확인
-            Alert.alert(JSON.stringify(res.data));
+            console.log(JSON.stringify(res.data)); // API 응답 확인
+
+            await AsyncStorage.setItem('token',JSON.stringify(res.data));
+
             Toast.show({
                 type: 'info',
                 text1: '로그인성공',
@@ -78,6 +84,9 @@ const HomeScreen = ({ navigation }) => {
         </View>
     );
 };
+
+
+
 
 const styles = StyleSheet.create({
     container: {
