@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <App color="red" title="Hello!" message="이것은 컬러 red의 값입니다."/>
   </React.StrictMode>
 );
 

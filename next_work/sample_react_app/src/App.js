@@ -1,25 +1,42 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
 
-function App() {
+function App(props) {
+
+  const [count, setCount] = useState(0);
+  const [data, setData] = useState([
+    {position: "absolute",
+      left: "0px", top: "0px",
+      width: "100%", height: "100%",
+      backgroundColor: "#fff0",
+    }
+  ]);
+
+  const doClick = (event) => {
+const ob ={
+  position: "absolute",
+  left: (event.pageX - 50) + "px",
+  top : (event.pageY - 50) + "px",
+  width: "100px",
+  height: "100px",
+  backgroundColor: "#ff000066",
+  borderRadius: "50%"
+}
+data.push(ob);
+setCount(count+1);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <h1>{props.title}</h1>
+     <p>{count} objects.</p>
+     <div onClick={doClick}>
+      {data.map((item, key)=>{
+        return(<div style={item} key={key}></div>)
+      })}
+     </div>
     </div>
   );
 }
-
 export default App;
