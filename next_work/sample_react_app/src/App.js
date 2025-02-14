@@ -2,41 +2,56 @@
 import { useState } from 'react';
 import './App.css';
 
+
+var data ={
+  data:[
+    {name:"kim"},
+    {name:"lee"},
+    {name:"park"}
+  ],
+  message:"Hello",
+}
+
+function Message() {
+  return(
+    <p className="ClassA">{data.message}</p>
+  );
+}
+
+function Data(){
+  return(
+    <ul>
+      {data.data.map((item,key)=>{
+        return(<li key={key}>{item.name}</li>)
+      })}
+    </ul>
+  )
+}
+
 function App(props) {
 
-  const [count, setCount] = useState(0);
-  const [data, setData] = useState([
-    {position: "absolute",
-      left: "0px", top: "0px",
-      width: "100%", height: "100%",
-      backgroundColor: "#fff0",
-    }
-  ]);
+  var [input, setInput] = useState("");
 
-  const doClick = (event) => {
-const ob ={
-  position: "absolute",
-  left: (event.pageX - 50) + "px",
-  top : (event.pageY - 50) + "px",
-  width: "100px",
-  height: "100px",
-  backgroundColor: "#ff000066",
-  borderRadius: "50%"
-}
-data.push(ob);
-setCount(count+1);
+  const doChange = (event) =>{
+    setInput(event.target.value);
+  };
+
+  const doClick = () => {
+    data.data.push({name:input});
+    data.message = "you typed: \"" +input+ "\".";
+    setInput(""); 
   }
 
-  return (
-    <div className="App">
-     <h1>{props.title}</h1>
-     <p>{count} objects.</p>
-     <div onClick={doClick}>
-      {data.map((item, key)=>{
-        return(<div style={item} key={key}></div>)
-      })}
-     </div>
+return(
+  <div className='App'>
+    <h1 className='ClassB'>{props.title}</h1>
+    <Message />
+    <div>
+      <input onChange={doChange} value={input}/>
+      <button onClick={doClick}>Click</button>
     </div>
-  );
+    <Data />
+  </div>
+)
 }
 export default App;
