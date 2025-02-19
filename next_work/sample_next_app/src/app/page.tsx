@@ -1,12 +1,24 @@
-import Link from "next/link";
-export default function Home() {
+'use client';
+import {useSearchParams} from 'next/navigation';
+import { Suspense } from 'react';
+
+function SearchParamsContent(){
+  const searchParams = useSearchParams();
+  return(
+    <main>
+      <h1 className='title'>Index page</h1>
+      <ul>
+        <li>ID: {searchParams.get('id')}</li>
+        <li>PASS: {searchParams.get('pass')}</li>
+      </ul>
+    </main>
+  )
+}
+
+export default async function Home() {
   return (
-   <main>
-<h1 className="title">Top page</h1>
-<p className="msg">This is other page sample.</p>
-<div>
-  <Link href="/other">go other page</Link>
-  </div>  
-   </main>
+ <Suspense>
+  <SearchParamsContent />
+ </Suspense>
   );
 }
