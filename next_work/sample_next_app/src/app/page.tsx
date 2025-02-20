@@ -1,24 +1,21 @@
-'use client';
-import {useSearchParams} from 'next/navigation';
-import { Suspense } from 'react';
+"use server";
 
-function SearchParamsContent(){
-  const searchParams = useSearchParams();
-  return(
-    <main>
-      <h1 className='title'>Index page</h1>
-      <ul>
-        <li>ID: {searchParams.get('id')}</li>
-        <li>PASS: {searchParams.get('pass')}</li>
-      </ul>
-    </main>
-  )
-}
+import { serverAction } from "./server-action";
+
 
 export default async function Home() {
+ 
   return (
- <Suspense>
-  <SearchParamsContent />
- </Suspense>
+ <main>
+  <h1 className="title">Index page</h1>
+  <p className="msg">※메세지 전송 : </p>
+  <div>
+    <form className="form" action={serverAction}>
+      <input className="input" type="text" name="input"/>
+    <button className="btn" 
+    >Click</button>
+    </form>
+  </div>
+ </main>
   );
 }
