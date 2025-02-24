@@ -64,3 +64,7 @@ table tr th {
 table tr td {
   @apply border-solid border-2 p-2
 }
+
+.prompt {
+  @apply text-lg mx-5 my-2 text-gray-900 p-2 border;
+}
