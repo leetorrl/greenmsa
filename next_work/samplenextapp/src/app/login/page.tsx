@@ -4,18 +4,20 @@ import { useState } from "react";
 import useSWR from "swr";
 
 const url = 'http://localhost:3000/rh';
-const fetcher = (...args) => fetch(...args).then(res => res.json());
+const fetcher = (...args: [RequestInfo, RequestInit?]) => {
+    return fetch(...args).then(res => res.json());
+};
 
 export default function Home() {
 
     const [name, setName] = useState('');
     const [pass, setPass] = useState('');
     const {data, error, mutate, isLoading} = useSWR(url, fetcher);
-    const doName = (event) => {
+    const doName = (event: React.ChangeEvent<HTMLInputElement>) => {
         const val = event.target.value;
         setName(val)
     }
-    const doPass = (event) => {
+    const doPass = (event: React.ChangeEvent<HTMLInputElement>) => {
         const val = event.target.value;
         setPass(val);
     }

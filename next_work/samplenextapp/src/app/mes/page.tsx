@@ -1,13 +1,12 @@
 "use client";
-
 import Link from "next/link";
 import { useState } from "react";
 
 export default function Home(){
   const [input, setInput] = useState('')
   const [prompt, setPrompt] = useState('')
-  // const [assistant, setAssistant] = useState('')
-  const [src, setSrc] = useState('/samp.webp');
+  const [assistant, setAssistant] = useState('')
+//   const [src, setSrc] = useState('/samp.webp');
 
   const doChange = (event) => {
     setInput(event.target.value);
@@ -15,17 +14,17 @@ export default function Home(){
 
 
 async function doAction(){
-  // setAssistant('wait...');
-  setPrompt('wait...')
-  fetch('/rh',{
+  setAssistant('wait...');
+//   setPrompt('wait...')
+  fetch('/rhh',{
     method: 'POST',
     body: JSON.stringify({prompt:input})
   }).then(resp => resp.json())
   .then((value) => {
     setPrompt(input);
     setInput('')
-    // setAssistant(value.content);
-    setSrc(value.url)
+    setAssistant(value.content);
+    // setSrc(value.url)
   })
   .catch(error => {
     console.log(error)
@@ -42,17 +41,12 @@ async function doAction(){
       </div>
       <div className="prompt">
         <div className="">PROMPT: {prompt}</div>
-<div>
+{/* <div>
   <Link href={src} target='_blank'><img className="my-0" width="256" height="256" src={src}/></Link>
-</div>
-        {/* <p className="">ASSISTANT: {assistant}</p> */}
+</div> */}
+        <p className="">ASSISTANT: {assistant}</p>
       </div>
-      <Link href="/mes">Go mes!!</Link>
-     <br/>
-     <br />
-     <div>
-      
-     </div>
+      <Link href="/">Go image!!</Link>
     </main>
   )
 }
