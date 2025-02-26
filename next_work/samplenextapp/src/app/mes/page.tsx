@@ -46,6 +46,7 @@ async function doAction(){
 </div> */}
         <p className="">ASSISTANT: {assistant}</p>
       </div>
+      <p>불러오는데 5초 정도 기다리셔야 합니다.</p>
       <Link href="/">Go image!!</Link>
     </main>
   )
