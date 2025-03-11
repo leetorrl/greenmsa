@@ -1,47 +1,75 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-export default function ClientComponent() {
-  const [data, setData] = useState<any[]>([]); 
-  const [count, setCount] = useState(0);
+export default function Home() {
+  const [data, setData] = useState(null);
+  const [newItem, setNewItem] = useState({ name: '', mail: '', age: '' });
+
+  // 데이터 가져오기 (GET 요청)
+  const fetchData = async () => {
+    try {
+      const res = await axios.get('/api/hello'); // axios로 GET 요청
+      setData(res.data); // 서버에서 받은 데이터
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  // POST 요청으로 새로운 항목 추가
+  const addItem = async () => {
+    try {
+      const res = await axios.post('/api/hello', newItem); // axios로 POST 요청
+      setData((prevData) => [...prevData, res.data]); // 새로 추가된 항목을 기존 데이터에 추가
+      setNewItem({name: '', mail: '', age: ''});
+    } catch (error) {
+      console.error('Error adding item:', error);
+    }
+  };
 
   useEffect(() => {
-   
-    const fetchData = async () => {
-      const res = await fetch('http://localhost:3000/api/hello');
-      const result = await res.json();
-      setData(result); 
-    };
-
     fetchData();
-  }, []); 
-
-  const countup = () => {
-    setCount(count + 1);
-  };
+  }, []);
 
   return (
     <div>
-      <h1>Next.js 기본 페이지</h1>
-      <p>Next.js와 React를 사용한 페이지입니다.</p>
-      <h1>{count}</h1>
-      <button onClick={countup}>click!</button>
-      <Link href='/leetorrl'>leetorrl라우터</Link>
-      
-      <ul>
-        {data && data.length > 0 ? (data.map((item, index) => (
-            <li key={index}>
-              <p>이름: {item.name}</p>
-              <p>이메일: {item.mail}</p>
-              <p>나이: {item.age}</p>
+      <h1>Hello, Next.js!</h1>
+      <div>
+        <h2>Add New Item</h2>
+        <input
+          type="text"
+          placeholder="Name"
+          value={newItem.name}
+          onChange={(e) => setNewItem({ ...newItem, name: e.target.value })}
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          value={newItem.mail}
+          onChange={(e) => setNewItem({ ...newItem, mail: e.target.value })}
+        />
+        <input
+          type="number"
+          placeholder="Age"
+          value={newItem.age}
+          onChange={(e) => setNewItem({ ...newItem, age: e.target.value })}
+        />
+        <button onClick={addItem}>Add Item</button>
+      </div>
+
+      <h2>Existing Data</h2>
+      {data ? (
+        <ul>
+          {data.map((item) => (
+            <li key={item.id}>
+              {item.name} ({item.age}) - {item.mail}
             </li>
-          ))
-        ) : (
-          <li>Loading...</li> 
-        )}
-      </ul>
+          ))}
+        </ul>
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 }
