@@ -1,7 +1,18 @@
-const odd = 'CJS 홀수입니다';
-const even = 'CJS 짝수입니다';
 
-module.exports = {
-    odd,
-    even,
-};
+const readline = require('readline');
+
+const rl = readline.createInterface({
+
+    input:process.stdin,
+    output:process.stdout
+
+})
+
+rl.question("",(input)=>{
+
+    const [A , B] = input.split(' ').map(Number);
+
+    console.log(A+B);
+
+    rl.close()
+})
