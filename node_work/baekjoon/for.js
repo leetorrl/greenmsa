@@ -1,7 +1,7 @@
 
 let hap = 0;
 
-for(i=1; i<50; i++, hap += i){
+for(i=1; i<500; i++, hap += i){
 
     
 
