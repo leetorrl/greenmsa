@@ -47,7 +47,7 @@ rl.question('숫자를 입력하세요(Enter): ', (input) => {
   } else {
     const maxPrimeDivisor = findMaxPrimeDivisor(num);
     if (maxPrimeDivisor === -1) {
-      console.log('소수 약수가 없습니다.');
+      console.log('소수 약수가 없습니다. ');
     } else {
       console.log(`입력값의 약수 중에서 가장 큰 소수는 : ${maxPrimeDivisor}`);
     }
