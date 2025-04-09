@@ -4,7 +4,7 @@ const res = readline.createInterface({
      output: process.stdout 
     }); 
 
-res.question("값을 입력 : ", (input) => { 
+res.question("값을입력 : ", (input) => { 
     const numbers = input.split(' ').map(Number);
     const min = Math.min(...numbers); 
     const max = Math.max(...numbers); 
