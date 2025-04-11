@@ -39,7 +39,7 @@ function findMaxPrimeDivisor(n) {
   return maxPrime;
 }
 
-rl.question('숫자를 입력하세요(Enter) : ', (input) => {
+rl.question('숫자를 입력하세요 (Enter) : ', (input) => {
   const num = parseInt(input);
 
   if (isNaN(num) || num <= 0) {
