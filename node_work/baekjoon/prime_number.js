@@ -43,7 +43,7 @@ rl.question('숫자를 입력하세요 (Enter) : ', (input) => {
   const num = parseInt(input);
 
   if (isNaN(num) || num <= 0) {
-    console.log('올바른 양의 정수를 입력해주세요.');
+    console.log('올바른 양의 정수를 입력해주세요 .');
   } else {
     const maxPrimeDivisor = findMaxPrimeDivisor(num);
     if (maxPrimeDivisor === -1) {
