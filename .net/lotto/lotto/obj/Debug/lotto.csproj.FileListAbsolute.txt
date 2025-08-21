@@ -1,0 +1,10 @@
+C:\Users\User\Desktop\연습\lotto\lotto\bin\Debug\lotto.exe.config
+C:\Users\User\Desktop\연습\lotto\lotto\bin\Debug\lotto.exe
+C:\Users\User\Desktop\연습\lotto\lotto\bin\Debug\lotto.pdb
+C:\Users\User\Desktop\연습\lotto\lotto\obj\Debug\lotto.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\연습\lotto\lotto\obj\Debug\lotto.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\연습\lotto\lotto\obj\Debug\lotto.exe
+C:\Users\User\Desktop\연습\lotto\lotto\obj\Debug\lotto.pdb
+C:\Users\User\Desktop\연습\lotto\lotto\bin\Debug\System.Data.SqlClient.dll
+C:\Users\User\Desktop\연습\lotto\lotto\bin\Debug\System.Data.SqlClient.xml
+C:\Users\User\Desktop\연습\lotto\lotto\obj\Debug\lotto.csproj.CopyComplete
